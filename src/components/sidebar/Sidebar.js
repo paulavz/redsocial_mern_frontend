@@ -10,6 +10,8 @@ import {
 	Event,
 	School,
 } from "@material-ui/icons";
+import { Users } from "../../dummyData";
+import CloseFriend from "../closeFriend/CloseFriend";
 
 export default function Sidebar() {
 	const listItems = [
@@ -50,24 +52,6 @@ export default function Sidebar() {
 			icon: School,
 		},
 	];
-	const listFriend = [
-		{
-			name: "Jane Doe",
-			src: "/assets/person/2.jpeg",
-		},
-		{
-			name: "Victoria Yang",
-			src: "/assets/person/3.jpeg",
-		},
-		{
-			name: "Carlos Gonzales",
-			src: "/assets/person/4.jpeg",
-		},
-		{
-			name: "Luis Peña",
-			src: "/assets/person/5.jpeg",
-		},
-	];
 
 	return (
 		<div className="sidebar">
@@ -85,17 +69,8 @@ export default function Sidebar() {
 				<button className="sidebarButton">Mostrar más</button>
 				<hr className="sidebarHr" />
 				<ul className="sidebarFriendList">
-					{listFriend.map((val) => (
-						<li className="sidebarFriend">
-							<img
-								className="sidebarFriendImg"
-								src={val.src}
-								alt="a friend"
-							/>
-							<span className="sidebarFriendName">
-								{val.name}
-							</span>
-						</li>
+					{Users.map((u) => (
+						<CloseFriend key={u.id} user={u} />
 					))}
 				</ul>
 			</div>
